@@ -1,0 +1,66 @@
+.sidebar {
+  width: 260px;
+  border-right: 1px solid $border-color;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 64px;
+  }
+
+  .body {
+    height: calc(100vh - 64px);
+    overflow: auto;
+    padding: 12px 0;
+
+    .row {
+      padding: 0 16px;
+      margin-bottom: 4px;
+      position: relative;
+      cursor: pointer;
+
+      .element {
+        height: 44px;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #9aa6ac;
+
+        .icon {
+          font-size: 18px;
+        }
+
+        .label {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      &.active {
+        .element {
+          background-color: $primary-background;
+          color: $primary;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 100%;
+          background-color: $primary;
+          width: 4px;
+          border-radius: px 0 0 px;
+        }
+      }
+
+      &:hover > .element {
+        background-color: $row-hover;
+      }
+    }
+  }
+}
